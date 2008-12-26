@@ -1,0 +1,7 @@
+%h1 Add a New Story
+
+=form_for(:story, :action => url(:stories)) do
+  = partial :form
+
+  %fieldset.buttons
+    = submit "Create"

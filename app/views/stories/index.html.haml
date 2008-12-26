@@ -1,0 +1,7 @@
+%h1 Stories
+
+- if @stories.size > 0
+  - for story in @stories
+    %p= story.title
+- else
+  %p there are no stories

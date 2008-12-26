@@ -1,5 +1,6 @@
 class Stories < Application
   # provides :xml, :yaml, :js
+  before :ensure_authenticated, :exclude => [:index, :show]
 
   def index
     @stories = Story.all
