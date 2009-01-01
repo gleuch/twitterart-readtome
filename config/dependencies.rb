@@ -23,3 +23,6 @@ dependency "dm-types", dm_gems_version
 dependency "dm-validations", dm_gems_version
 
 dependency "merb-haml"
+
+dependency "httparty", "0.2.4"
+dependency "twitter",  "0.4.0"

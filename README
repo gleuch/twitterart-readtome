@@ -7,12 +7,29 @@
 
 ################################################################################################
 
-
 An open-source php platform for utilizing Twitter and other social media for new media art and 
 educational research purposes.
-
 
 ################################################################################################
 
 Created by Greg Leuch <http://www.halvfet.com>. Subject to Creative Commons license BY-SA.
 
+
+
+
+Installation & Configuration
+
+################################################################################################
+
+To install, you must use the Twitter Ruby gem (twitter.rubyforge.org).
+
+  1. Install gem:
+    $   sudo gem install twitter -v 0.4.0
+    $   twitter install
+
+  2. Rename config/init.rb to config/init.rb.
+  
+  3. Setup your Twitter user information by updating the TWITTER_NAMES collection with the 
+     username and the password.
+
+  4. Start your app.

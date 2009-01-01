@@ -5,7 +5,17 @@ require 'config/dependencies.rb'
 use_orm :datamapper
 use_test :rspec
 use_template_engine :erb
- 
+
+# Configure the user names for the TwitterArt sections. 
+# To disable a section of the app, just comment out the line or make the username blank.
+TWITTER_NAMES = {
+  :readtome => {:user => 'readtome', :password => ''}
+}
+
+CRON_KEY = 'e3krkemn023lpm3op0newk93232'
+
+
+
 Merb::Config.use do |c|
   c[:use_mutex] = false
   c[:session_store] = 'cookie'  # can also be 'memory', 'memcache', 'container', 'datamapper
