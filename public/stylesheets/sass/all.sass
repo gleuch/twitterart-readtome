@@ -1,0 +1,214 @@
+// Update the three variables below to make color changes. 
+// More advanced options can be done by editing the CSS and/or template files.
+!text = #000
+!lt_text = #666
+!md_text = #404040
+!border = #000
+!background = #fff
+!hover = #444
+
+/*
+  Readtome, by TwitterArt, was developed to be simple and flexible to customize. 
+  More information can be found at http://www.twitterart.org/readtome.
+  Copyfree by Creative Commons license BY-NC-SA 3.0.
+*
+  :margin 0px
+  :padding 0px
+  :text-decoration none
+html
+  :height 100%
+body
+  :font-family Helvetica, Arial, Verdana, sans-serif
+  :font-size 62.5%
+  :background = !background
+  :margin 0
+  :padding 0
+  :color = !text
+h1
+  :font-size 3.6em
+h2
+  :font-size 2.8em
+h3
+  :font-size 2.4em
+h4
+  :font-size 1.8em
+  :letter-spacing -.02em
+h5
+  :font-size 1.5em
+  :font-weight normal
+h6
+  :font-size 1.4em
+  :letter-spacing -.005em
+p
+  :font-size 1.3em
+  :line-height 1.31em
+a
+  :color = !text
+  &:hover
+    :color = !hover
+
+
+/* Global styles
+.left
+  :clear none
+  :float left
+  :width 40%
+.right
+  :clear none
+  :float right
+  :width 40%
+  :text-align right
+.c
+  &:after
+    :content "."
+    :clear both
+    :display block
+    :visibility hidden
+    :height 0px
+
+/* Template styles
+#wrapper
+  :width 900px
+  :margin 0 auto
+
+
+/* Header
+#header
+  :border
+    :bottom = 1px solid !border
+  #topbar
+    :padding 3px 0
+    :border
+      :bottom = 1px solid !border
+    :color = !lt_text
+    .left
+      :width 400px
+    .right
+      :width 500px
+  #titlebar
+    :border
+      :bottom = 7px solid !border
+    :margin
+      :bottom 3px
+    :padding
+      :top 25px
+      :bottom 15px
+    .left
+      h1
+        :text-transform lowercase
+      h5
+        :color = !lt_text
+        :text-transform lowercase
+        :font-style italic
+    .right
+
+/* Content
+#content_area
+  :padding
+    :top 30px
+    :bottom 20px
+
+  #content
+    :width 675px
+
+    #error_doc
+      :padding
+        :top 30px
+      h2
+        :padding
+          :bottom 16px
+        :margin
+          :bottom 16px
+        :border
+          :bottom = 1px solid !border
+
+  #sidebar
+    :padding
+      :top 3px
+    :width 192px
+    :text-align left
+    #follow_button
+      :display block
+      :margin 0 10px 15px 10px
+      :background-color = !border
+      :padding 2px
+      #follow_button_text
+        :border = 1px solid !background
+        :color = !background
+        :padding 8px 0 7px 0
+        :text-align center
+      &:hover
+        :background-color = !hover      
+    .sidebar_block
+      :position relative
+      :border-bottom = 1px solid !border
+      :padding 16px 0 14px 0
+      &:last-child
+        :border none
+    a.sidebar_block
+      :display block
+    #readtome_details
+      :padding
+        :bottom 12px
+      p
+        :padding
+          :bottom 2px
+    #currently_reading
+      h6
+        :padding
+          :bottom 4px
+      p
+        :font-size 1.2em
+        :line-height 1.333em
+    #previously_read
+      #previously_read_count
+        :position absolute
+        :top 16px
+        :right 0
+        :text-align right
+    #readtome_credits
+      :padding
+        :top 20px
+      p
+        :font-size 1.2em
+        :line-height 1.333em
+        :letter-spacing .007em
+        a
+          :color = !hover
+          :text-decoration underline
+          &:hover
+            :color = !text
+        
+  
+
+/* Footer
+#footer
+  :position relative
+  :border
+    :top = 5px solid !border
+  :padding
+    :top 10px
+    :bottom 20px
+  #copyfree
+    :position absolute
+    :top 13px
+    :left -13px
+    :width 8px
+    :height 8px
+    :background
+      :image url(../images/bg/copyleft.png)
+      :position top left
+      :repeat no-repeat
+  .left
+    :width 300px
+    :text-transform lowercase
+    :color = !md_text
+    :line-height 1.33em
+    :font-size 1.1em
+    a
+      :color = !md_text
+      &:hover
+        :color = !text
+  .right
+    :width 550px
+

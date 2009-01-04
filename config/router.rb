@@ -16,14 +16,27 @@ Merb::Router.prepare do
   #end
 
   with :controller => 'stories' do
-    match('/stories').to(:action => 'index').name(:stories)
-    match('/stories/publish').to(:action => 'publish').name(:story)
+    with :controller => 'lists' do
+      match('/stories/currently-reading').to(:action => 'list', :list => 'current').name(:lists)
+      match('/stories/previously-read').to(:action => 'list', :list => 'previous').name(:lists)
+      match('/stories/upcoming-reads').to(:action => 'list', :list => 'upcoming').name(:lists)
+    end
+
+    match('/stories/currently-reading/:id').to(:action => 'list', :list => 'current').name(:story)
+    match('/stories/previously-read/:id').to(:action => 'list', :list => 'previous').name(:story)
+    match('/stories/upcoming-reads/:id').to(:action => 'list', :list => 'upcoming').name(:story)
     match('/stories/:id').to(:action => 'show').name(:story)
-    #with :controller => 'games' do
-    #  match('/stories/:story_id/games/').to(:action => 'index').name(:stories)
-    #  match('/stories/:story_id/games/:id').to(:action => 'show').name(:story)
-    #end
+
+    match('/publish/:id').to(:action => 'publish').name(:story)
   end
+
+  with :controller => 'votes' do
+    match('/vote/:id').to(:action => 'index').name(:vote)
+  end
+
+  match('/').to(:controller => 'home', :action => 'index')
+  match('/home').to(:controller => 'home', :action => 'index')
+  match('/stories').to(:controller => 'home', :action => 'index')
 
   slice(:merb_auth_slice_password, :name_prefix => nil, :path_prefix => "")
 end

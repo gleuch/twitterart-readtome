@@ -1,0 +1,9 @@
+#topbar.c
+  - if session.authenticated?
+    .left
+      %p== Welcome #{session.user.login}.
+  .right
+    %a{:href => 'http://www.twitterart.org/readtome'} 
+      Readtome 
+      %span /
+      a TwitterArt application

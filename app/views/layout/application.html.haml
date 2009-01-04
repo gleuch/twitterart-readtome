@@ -2,10 +2,24 @@
   %head
     %title Fresh Merb App
     %meta{:"http-equiv" => "content-type", :content => "text/html; charset=utf-8"}
-    %link{:rel => "stylesheet", :href => "/stylesheets/master.css", :type => "text/css", :media => "screen", :charset => "utf-8"}
-  %body
-    - if session.authenticated?
-      %p== Welcome #{session.user.login}
+    = css_include_tag :all, :media => "all"
+    = css_include_tag :print, :media => "print"
 
-    =# message[:notice]
-    = catch_content :for_layout
+  %body
+    #wrapper
+      #header.c
+        = partial 'layout/common/topbar'
+        = partial 'layout/common/titlebar'
+
+      #content_area.c
+        #content.left
+          - unless message[:notice].blank?
+            #notice_message
+              = message[:notice]
+
+          = catch_content :for_layout
+        #sidebar.right
+          = partial 'layout/common/sidebar'
+
+      #footer.c
+        = partial 'layout/common/footer'

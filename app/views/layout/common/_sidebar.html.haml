@@ -1,0 +1,28 @@
+%a#follow_button{:href => "#"}
+  %h4#follow_button_text Follow
+
+#readtome_details.sidebar_block
+  %p
+    %strong Name:
+    readtome
+  %p
+    %strong About:
+    This is info about readtome twitterart application.
+
+%a#currently_reading.sidebar_block{:href => "#"}
+  %h6 Currently Reading
+  %p
+    Being and Time
+    %br
+    Martin Heidigger
+
+%a#upcoming_reads.sidebar_block{:href => "#"}
+  %h6 Upcoming Reads
+
+%a#previously_read.sidebar_block{:href => "#"}
+  %h6 Previously Read
+  %h6#previously_read_count 13
+
+
+#readtome_credits.sidebar_block
+  %p== Readtome is powered by #{link_to "twitterart", "#"}, an open-source web app for tweeting articles, stories, and other large amounts of content to followers. #{link_to "Learn More »", "#"}

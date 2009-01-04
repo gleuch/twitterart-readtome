@@ -3,7 +3,10 @@ class Stories < Application
   before :ensure_authenticated, :exclude => [:index, :show]
 
   def index
-    @stories = Story.all
+    @stories = Story.all(:current => 0, :started_at.lte => 0, :finished_at.lte => 0, :order => [:votes_up.asc, :created_at.asc])
+    @current_story = Story.first(:current => 1, :order => [:started_at.desc])
+    @previous_stories = Story.all(:current => 0, :finished_at.gt => 0, :order => [:finished_at.desc])
+
     display @stories
   end
 
@@ -56,34 +59,19 @@ class Stories < Application
     end
   end
 
+  def vote(id)
+    
+  end
+
+
   def publish
     @story = Story.all(:current => 1, :order => [:started_at.desc]).first()
 
-    snip = @story.content.gsub(/\n/, " ").gsub(/( ){2,}/, " ")[@story.character_at.to_i..(@story.character_at.to_i + 141)].lstrip
-    adjust = 0
+    @tweet, tweet_size = make_tweet(@story)
 
-    # Clean out left whitespace
-    if snip.size == 142
-      snip = snip.chop
-      adjust = 1
-    end  
-
-    # Check if tweet is breaking last word, otherwise stop before word
-    if snip[-1..-1] == ' '
-      @tweet = snip.rstrip
-    else
-      tweet = []
-      snip.split(" ").each do |r|
-        if (tweet.join(" ").size + r.size + 1) <= 140
-          tweet << r
-        end
-      end
-      @tweet = tweet.join(" ")
-    end
-
-    if Twitter::Base.new(TWITTER_NAMES[:readtome][:user], TWITTER_NAMES[:readtome][:password]).update(@tweet, {:source => 'twitterart'})
-      @story.update_attributes({:character_at => (@tweet.size + adjust + @story.character_at)})
-    end
+    #if Twitter::Base.new(TWITTER_NAMES[:readtome][:user], TWITTER_NAMES[:readtome][:password]).update(@tweet, {:source => 'twitterart'})
+    #  @story.update_attributes({:character_at => (tweet_size + @story.character_at)})
+    #end
 
     display @story
   end

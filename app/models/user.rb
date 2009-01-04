@@ -11,7 +11,20 @@
 class User
   include DataMapper::Resource
   
-  property :id,     Serial
-  property :login,  String
-  
+  property :id, Serial
+  property :login, String
+  property :id, Serial
+  property :login, String, :nullable => false, :unique => true, :length => (3..40),
+    :messages => {
+      :presence => "We need your email address.",
+      :is_unique => "We already have that login."
+    }
+  property :email, String, :nullable => false, :unique => true, :format => :email_address,
+    :messages => {
+      :presence => "We need your email address.",
+      :is_unique => "We already have that email.",
+      :format => "Doesn't look like an email to me..."
+    }
+  property :name, String
+  property :admin, Boolean
 end
