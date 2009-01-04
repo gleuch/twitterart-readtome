@@ -1,18 +1,19 @@
- _            _ _   _                      _   
-| |___      _(_) |_| |_ ___ _ __ __ _ _ __| |_ 
-| __\ \ /\ / / | __| __/ _ \ '__/ _` | '__| __|
-| |_ \ V  V /| | |_| ||  __/ | | (_| | |  | |_ 
- \__| \_/\_/ |_|\__|\__\___|_|  \__,_|_|   \__|
+                    _ _                       
+ _ __ ___  __ _  __| | |_ ___  _ __ ___   ___ 
+| '__/ _ \/ _` |/ _` | __/ _ \| '_ ` _ \ / _ \
+| | |  __/ (_| | (_| | || (_) | | | | | |  __/
+|_|  \___|\__,_|\__,_|\__\___/|_| |_| |_|\___|
 
 
 ################################################################################################
 
-An open-source php platform for utilizing Twitter and other social media for new media art and 
-educational research purposes.
+readtome is an open-source platform for using Twitter to read books, articles, and other
+publications to its followers. readtome is prt of the twitterart project, an open-source project
+for utilizing Twitter and other social media for new media art and educational purposes.
 
 ################################################################################################
 
-Created by Greg Leuch <http://www.halvfet.com>. Subject to Creative Commons license BY-SA.
+Created by Greg Leuch <http://www.halvfet.com>, under Creative Commons license BY-NC-SA 3.0.
 
 
 
