@@ -1,4 +1,4 @@
-%a#follow_button{:href => "#"}
+%a#follow_button{:href => twitter_link}
   %h4#follow_button_text Follow
 
 #readtome_details.sidebar_block
@@ -7,21 +7,24 @@
     readtome
   %p
     %strong About:
-    This is info about readtome twitterart application.
+    = get_app_config('about')
 
-%a#currently_reading.sidebar_block{:href => "#"}
+%a#currently_reading.sidebar_block{:href => "/currently-reading"}
   %h6 Currently Reading
-  %p
-    Being and Time
-    %br
-    Martin Heidigger
+  - unless @current_story.blank?
+    %p
+      = @current_story.title
+      %br
+      = @current_story.author
+  - else
+    %p.suggest No current story available.
 
-%a#upcoming_reads.sidebar_block{:href => "#"}
+%a#upcoming_reads.sidebar_block{:href => "/upcoming-reads"}
   %h6 Upcoming Reads
 
-%a#previously_read.sidebar_block{:href => "#"}
+%a#previously_read.sidebar_block{:href => "/previously-read"}
   %h6 Previously Read
-  %h6#previously_read_count 13
+  %h6#previously_read_count= previous_count
 
 
 #readtome_credits.sidebar_block
