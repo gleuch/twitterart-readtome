@@ -11,6 +11,7 @@ class Story
   property :author, String
   property :content, Text
   property :character_at, Integer, :default => 0, :nullable => false
+  property :tweet, Text, :nullable => true
   property :votes_up, Integer, :default => 0, :nullable => false
   property :votes_down, Integer, :default => 0, :nullable => false
 

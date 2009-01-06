@@ -5,7 +5,7 @@
     = css_include_tag :all, :media => "all"
     = css_include_tag :print, :media => "print"
 
-  %body
+  %body{:id => "#{params[:controller]}_#{params[:action]}"}
     #wrapper
       #header.c
         = partial 'layout/common/topbar'

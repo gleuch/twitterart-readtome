@@ -39,6 +39,7 @@ h5
 h6
   :font-size 1.4em
   :letter-spacing -.005em
+  :line-height 1.285em
 p
   :font-size 1.3em
   :line-height 1.31em
@@ -65,6 +66,26 @@ a
     :display block
     :visibility hidden
     :height 0px
+
+p.suggest
+  :color = !lt_text
+  :text-align center
+  :padding
+    :top 20px
+    :bottom 20px
+
+.suggestion_box
+  h6
+    :border-bottom = 1px solid !border
+    :padding
+      :bottom 6px
+    :margin
+      :bottom 8px
+  p
+    :font-size 1.2em
+    :line-height 1.25em
+  
+
 
 /* Template styles
 #wrapper
@@ -178,8 +199,7 @@ a
           :text-decoration underline
           &:hover
             :color = !text
-        
-  
+
 
 /* Footer
 #footer
@@ -212,3 +232,59 @@ a
   .right
     :width 550px
 
+
+#home_index
+  #current_tweet
+    :border
+      :bottom = 2px solid !border
+    :padding
+      :bottom 7px
+    :margin
+      :bottom 45px
+    h1
+      :padding
+        :top 25px
+        :bottom 25px
+      :font-size 3.2em
+      :line-height 1.125em
+    h1.suggest
+      :text-transform lowercase
+      :font-style italic
+      :text-align center
+      a
+        :color = !text
+        :text-decoration underline
+        :text-transform none
+        &:hover
+          :color = !hover
+          :text-decoration none
+    h6
+      :border
+        :bottom = 1px solid !border
+      :padding
+        :bottom 6px
+      :text-transform lowercase
+    p
+      :text-align right
+      :font-size 1.1em
+      :text-transform lowercase
+      a
+        :color = !text
+        :text-decoration underline
+        :text-transform none
+        &:hover
+          :color = !hover
+          :text-decoration none
+  #upcoming_votes
+    :width 385px
+    h3
+      :font-size 2.0em
+    #upcoming_list
+      :margin
+        :top 4px
+      :border-top = 1px solid !border
+  #suggestion_box
+    :text-align left
+    :width 257px
+    :padding
+      :top 30px

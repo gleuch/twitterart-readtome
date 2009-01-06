@@ -1,25 +1,25 @@
-%h1 Stories
-%h3 Current Story
+#current_tweet
+  %h6 Readtome tweets books, articles, and more&hellip;
+  - unless @current_story.blank?
+    - unless @current_story.tweet.blank?
+      %h1== #{@current_story.tweet}&hellip;
+    - else
+      %h1.suggest &hellip;
+    %p
+      Latest reading from 
+      %a{:href => "/currently-reading"}== #{@current_story.title} by #{@current_story.author}
+  - else
+    %h1.suggest Readtome is currently not tweeting anything.
 
-- unless @current_story.blank?
-  %p= @current_story.title
-  .story= highlight_tweet(@current_story)
-
-- else
-  %p
-    There is not a current story.
-    - #if logged_in?      You should select one to start reading.
-
-%h3 Upcoming Stories
-- if @stories.size > 0
-  - for story in @stories
-    %p= story.title
-- else
-  %p There are no upcoming stories
-  
-%h3 Previous Stories
-- if @previous_stories.size > 0
-  - for story in @previous_stories
-    %p= story.title
-- else
-  %p There are no previously read stories.
+.c
+  #upcoming_votes.left
+    %h3 Upcoming Stories
+    %p Vote your pick for the next item to be read.
+    #upcoming_list
+      - if @stories.size > 0
+        - for story in @stories
+          = partial "layout/chunks/vote_list", :story => story
+      - else
+        %p There are no upcoming stories.
+  #suggestion_box.right
+    = partial "layout/chunks/suggest_box"

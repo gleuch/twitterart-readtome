@@ -67,7 +67,7 @@ class Stories < Application
     @tweet, tweet_size = make_tweet(@story)
 
     #if Twitter::Base.new(TWITTER_NAMES[:readtome][:user], TWITTER_NAMES[:readtome][:password]).update(@tweet, {:source => 'twitterart'})
-    #  @story.update_attributes({:character_at => (tweet_size + @story.character_at)})
+    #  @story.update_attributes({:tweet => @tweet, :character_at => (tweet_size + @story.character_at)})
     #end
 
     display @story
