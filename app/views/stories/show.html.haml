@@ -1,0 +1,12 @@
+- unless @story.blank?
+  #story_titlebar
+    %h4= typeof_story
+    %h1.deep== #{@story.title} #{@story.id}
+    - unless @story.author.blank?
+      %h6= @story.author
+  #story_content
+    = @story.content
+- else
+  #story_titlebar
+    %h4= typeof_story
+  %p.suggest= typeof_story_singular_none

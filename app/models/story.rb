@@ -16,4 +16,25 @@ class Story
   property :votes_down, Integer, :default => 0, :nullable => false
 
   has n, :votes
+
+  def story_type?
+    if (current == 1)
+      "current"
+    elsif(current != 1 && started_at.blank? && finished_at.blank?)
+      "upcoming"
+    else
+      "previous"
+    end
+  end
+
+  def story_link
+    type = self.story_type?
+    if (type == "current")
+      "/stories/currently-reading"
+    elsif(type == "upcoming")
+      "/stories/upcoming-reads/#{id}"
+    else
+      "/stories/previously-read/#{id}"
+    end
+  end
 end

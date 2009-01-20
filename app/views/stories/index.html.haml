@@ -1,25 +1,22 @@
-%h1 Stories
-%h3 Current Story
+.story_titlebar
+  %h1 The List
+  %h6 A list of all previously read and upcoming stories.
 
-- unless @current_story.blank?
-  %p= @current_story.title
-  .story= highlight_tweet(@current_story)
+.c
+  .left
+    .story_titlebar
+      %h4= typeof_story('upcoming')
+    - if @stories.size > 0
+      - for story in @stories
+        = partial "layout/chunks/vote_list", :story => story
+    - else
+      %p.suggest= typeof_list_none('upcoming')
 
-- else
-  %p
-    There is not a current story.
-    - #if logged_in?      You should select one to start reading.
-
-%h3 Upcoming Stories
-- if @stories.size > 0
-  - for story in @stories
-    %p= story.title
-- else
-  %p There are no upcoming stories
-  
-%h3 Previous Stories
-- if @previous_stories.size > 0
-  - for story in @previous_stories
-    %p= story.title
-- else
-  %p There are no previously read stories.
+  .right
+    .story_titlebar
+      %h4= typeof_story('previous')
+    - if @previous_stories.size > 0
+      - for story in @previous_stories
+        = partial "layout/chunks/vote_list", :story => story, :vote => false
+    - else
+      %p.suggest= typeof_list_none('previous')

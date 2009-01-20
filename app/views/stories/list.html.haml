@@ -1,0 +1,9 @@
+#story_titlebar
+  %h4= typeof_story
+
+- if @stories.size > 0
+  %dl
+    - for story in @stories
+      %dd= link_to story.title, "/stories/#{story.id}"
+- else
+  %p.suggest= typeof_list_none

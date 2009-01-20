@@ -8,4 +8,14 @@ class Home < Application
     display @stories
   end
 
+  def about
+    @about = {}
+    display @about
+  end
+
+  def recommend
+    @stories = {}
+    display @stories
+  end
+
 end # Home

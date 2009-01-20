@@ -3,5 +3,5 @@
     .vote_up Up
     .vote_down Down
   .story
-    %h6= story.title
+    %h6= link_to story.title, story.story_link
     %p= story.author

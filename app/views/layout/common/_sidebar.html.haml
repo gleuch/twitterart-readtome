@@ -4,12 +4,12 @@
 #readtome_details.sidebar_block
   %p
     %strong Name:
-    readtome
+    = TWITTER_NAMES[:"#{Merb.environment}"][:user]
   %p
     %strong About:
     = get_app_config('about')
 
-%a#currently_reading.sidebar_block{:href => "/currently-reading"}
+%a#currently_reading.sidebar_block{:href => "/stories/currently-reading"}
   %h6 Currently Reading
   - unless @current_story.blank?
     %p
@@ -19,13 +19,13 @@
   - else
     %p.suggest No current story available.
 
-%a#upcoming_reads.sidebar_block{:href => "/upcoming-reads"}
+%a#upcoming_reads.sidebar_block{:href => "/stories/upcoming-reads"}
   %h6 Upcoming Reads
 
-%a#previously_read.sidebar_block{:href => "/previously-read"}
+%a#previously_read.sidebar_block{:href => "/stories/previously-read"}
   %h6 Previously Read
   %h6#previously_read_count= previous_count
 
 
 #readtome_credits.sidebar_block
-  %p== Readtome is powered by #{link_to "twitterart", "#"}, an open-source web app for tweeting articles, stories, and other large amounts of content to followers. #{link_to "Learn More »", "#"}
+  %p== Readtome is powered by #{link_to "twitterart", "http://www.twitterart.org"}, an open-source web app for tweeting articles, stories, and other large amounts of content to followers. #{link_to "Learn More »", "http://www.twitterart.org"}

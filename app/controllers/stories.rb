@@ -1,15 +1,34 @@
 class Stories < Application
   # provides :xml, :yaml, :js
-  before :ensure_authenticated, :exclude => [:index, :show]
+  before :ensure_authenticated, :exclude => [:index, :list, :show]
 
   def index
-    @stories = {}
+    @stories = Story.all(:current => 0, :started_at => nil, :finished_at => nil, :order => [:votes_up.asc, :created_at.asc])
+    @previous_stories = Story.all(:current => 0, :finished_at.gt => 0, :order => [:finished_at.desc])
+
     display @stories
   end
 
-  def show(id)
-    @story = Story.get(id)
-    raise NotFound unless @story
+  def list
+    if params[:list] == "upcoming"
+      @stories = Story.all(:current => 0, :started_at => nil, :finished_at => nil, :order => [:votes_up.asc, :created_at.asc])
+    else
+      @stories = Story.all(:current => 0, :finished_at.gt => 0, :order => [:finished_at.desc])
+    end
+
+    display @stories
+  end
+
+  def show(id=false)
+    if params[:list] == "current"
+      current_story
+      @story = @current_story
+    elsif params[:list] == "upcoming"
+      @story = Story.first(:id => id, :current => 0, :started_at => nil, :finished_at => nil)
+    elsif params[:list] == "previous"
+      @story = Story.first(:id => id, :finished_at.gt => 0)
+    end
+
     display @story
   end
 
