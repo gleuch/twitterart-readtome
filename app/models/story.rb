@@ -18,9 +18,9 @@ class Story
   has n, :votes
 
   def story_type?
-    if (current == 1)
+    if (current)
       "current"
-    elsif(current != 1 && started_at.blank? && finished_at.blank?)
+    elsif (!current && started_at.blank? && finished_at.blank?)
       "upcoming"
     else
       "previous"

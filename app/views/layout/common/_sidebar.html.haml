@@ -9,7 +9,7 @@
     %strong About:
     = get_app_config('about')
 
-%a#currently_reading.sidebar_block{:href => "/stories/currently-reading"}
+%a#currently_reading.sidebar_block{:href => @current_story.story_link}
   %h6 Currently Reading
   - unless @current_story.blank?
     %p
