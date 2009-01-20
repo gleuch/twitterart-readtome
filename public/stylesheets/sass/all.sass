@@ -105,6 +105,7 @@ p.suggest
     .left
       :width 400px
     .right
+      :text-transform lowercase
       :width 500px
   #titlebar
     :border
@@ -122,6 +123,26 @@ p.suggest
         :text-transform lowercase
         :font-style italic
     .right
+      :min-width 0px
+      :width auto
+      :max-width 530px
+      :text-align right
+      dl
+        :padding 18px 11px 0 0
+        :margin 0
+        dd
+          :clear none
+          :display block
+          :float left
+          :font-size 1.6em
+          :line-height 1.0em
+          :font-weight bold
+          :padding 0 16px 0 0
+          :width auto
+          a
+            :display block
+          &:last-child
+            :padding-right 0
 
 /* Content
 #content_area
@@ -230,7 +251,26 @@ p.suggest
       &:hover
         :color = !text
   .right
-    :width 550px
+    :min-width 0px
+    :width auto
+    :max-width 550px
+    :text-align right
+    dl
+      :padding 7px 8px 0 0
+      :margin 0
+      dd
+        :clear none
+        :display block
+        :float left
+        :font-size 1.3em
+        :line-height 1.0em
+        :font-weight bold
+        :padding 0 13px 0 0
+        :width auto
+        a
+          :display block
+        &:last-child
+          :padding-right 0
 
 
 #home_index
